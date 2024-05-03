@@ -1,0 +1,868 @@
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="date" content="01 19, 2003 11:05:12 AM">
+<meta name="generator" content="Adobe RoboHelp 11">
+<title>Passive Filter Design</title>
+<link rel="StyleSheet" href="Passive%20Filter%20Design_arquivos/pscad-ol-help.css" type="text/css">
+ <link rel="StyleSheet" href="Passive%20Filter%20Design_arquivos/WebHelp.css" type="text/css">
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+</style>
+<script type="text/javascript" language="javascript1.2" src="Passive%20Filter%20Design_arquivos/whmsg.js" charset="utf-8"></script>
+<script type="text/javascript" language="javascript" src="Passive%20Filter%20Design_arquivos/whver.js" charset="utf-8"></script>
+<script type="text/javascript" language="javascript1.2" src="Passive%20Filter%20Design_arquivos/whutils.js" charset="utf-8"></script>
+<script type="text/javascript" language="javascript1.2" src="Passive%20Filter%20Design_arquivos/whproxy.js" charset="utf-8"></script>
+<script type="text/javascript" language="javascript1.2" src="Passive%20Filter%20Design_arquivos/whlang.js" charset="utf-8"></script>
+<script type="text/javascript" language="javascript1.2" src="Passive%20Filter%20Design_arquivos/whtopic.js" charset="utf-8"></script>
+
+</head>
+
+<body><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+	var strUrl = document.location.href;
+	var bc = 0;
+	var n = strUrl.toLowerCase().indexOf("bc-");
+	if(n != -1)
+	{
+		document.location.replace(strUrl.substring(0, n));
+		bc = strUrl.substring(n+3);
+	}
+
+	if (window.addTocInfo)
+	{
+	addTocInfo("Master Library Models\nPassive\nFilters\nPassive Filter Design");
+addButton("show",BTN_TEXT,"Show","","","","",0,0,"","","");
+
+	}
+	if (window.writeBtnStyle)
+		writeBtnStyle();
+
+	if (window.writeIntopicBar)
+		writeIntopicBar(1);
+
+	
+	document.write("<p style=\"text-align:right\"> ");
+AddMasterBreadcrumbs("../../../ol-help.htm", "", ">", "Home", "../../../Opening_Screen.htm");
+document.write("<a href=\"../capacitor.htm\">Master Library Models<\/a> > <a href=\"../capacitor.htm\">Passive<\/a> > <a href=\"tuned_filter.htm\">Filters<\/a> > Passive Filter Design<\/p>");
+
+}
+else
+	if (window.gbIE4)
+		document.location.reload();
+
+onLoadHandler = function()
+{
+  if (window.setRelStartPage)
+	{
+	setTimeout("setRelStartPage('../../../ol-help.htm');", 1)
+
+    setTimeout("UpdateBreadCrumbsMarker();", 1);
+	}
+}
+
+if (window.addEventListener){  
+	window.addEventListener('load', onLoadHandler, false);   
+} else if (window.attachEvent){  
+	window.attachEvent('onload', onLoadHandler);  
+}
+
+function onSetStartPage()
+{
+  autoSync(1);
+  sendSyncInfo();
+  sendAveInfoOut();
+}
+//-->
+//]]></script><style type="text/css">.whtbtnshow{font-family:;font-size:10pt;font-style:;font-weight:;text-decoration:;color:;}</style><table width="100%"><tbody><tr><td width="33%"><div align="left"><table cellpadding="2" cellspacing="0" border="0"><tbody><tr><td><a title="Show Navigation Component" class="whtbtnshow" href="javascript:void(0);" onclick="show();return false;">Show</a>&nbsp;</td></tr></tbody></table></div></td></tr></tbody></table><p style="text-align:right"> <span id="brseq0"><a style="" href="https://www.pscad.com/webhelp/Opening_Screen.htm">Home</a> &gt; </span><a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/capacitor.htm">Master Library Models</a> &gt; <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/capacitor.htm">Passive</a> &gt; <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/Filters/tuned_filter.htm">Filters</a> &gt; Passive Filter Design</p>
+<script type="text/javascript" src="Passive%20Filter%20Design_arquivos/ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Passive Filter Design</h1>
+<p class="LinkList" style="text-decoration: none; "><a href="#Harmonic_Filter_Design_Procedure" style="text-decoration: none; ">Harmonic 
+ Filter Design Procedure</a></p>
+<p class="LinkList" style="text-decoration: none; "><a href="#Master_Library_Models" style="text-decoration: none; ">Master 
+ Library Models</a></p>
+<p class="LinkList" style="text-decoration: none; "><a href="#Series__Single-Tuned__Filter" style="text-decoration: none; ">Series 
+ (Single-Tuned) Filter</a></p>
+<p class="LinkList" style="text-decoration: none; "><a href="#High-Pass_Filter" style="text-decoration: none; ">High-Pass 
+ Filter</a></p>
+<p class="LinkList" style="text-decoration: none; "><a href="#Band-Pass_Filter" style="text-decoration: none; ">Band-Pass 
+ Filter</a></p>
+<p class="LinkList" style="text-decoration: none; "><a href="#C-Type_Filter" style="text-decoration: none; ">C-Type 
+ Filter</a></p>
+<p>&nbsp;</p>
+<p>A passive ﬁlter component is a combination of capacitors and inductors 
+ that are tuned to resonate at a single frequency, or through a band of 
+ frequencies. In power systems, passive ﬁlters are used to suppress harmonic 
+ currents and decrease voltage distortion appearing in sensitive parts 
+ of the system.</p>
+<p>&nbsp;</p>
+<p>Passive ﬁlters work by exhibiting diﬀerent impedance values at the resonant 
+ frequency. A ﬁlter connected in series should present high impedance to 
+ the harmonic frequency that needs to be blocked. Although a series conﬁguration 
+ is possible, it is more common to connect ﬁlters in parallel. Such a shunt 
+ conﬁguration diverts harmonic currents to ground, and simultaneously provide 
+ reactive power, which may be used to correct the power factor. As such, 
+ passive shunt ﬁlters are designed to be capacitive at the fundamental 
+ frequency. </p>
+<h2><a name="Harmonic_Filter_Design_Procedure"></a>Harmonic Filter Design 
+ Procedure</h2>
+<p>In order to design a harmonic filter, information about the local power 
+ system, including environmental data, is required. Power system information 
+ includes characteristics, such as the nominal line-to-line voltage, typical 
+ equipment BIL for the system voltage level, fundamental frequency, system 
+ configuration, and impedance of system components. A clear understanding 
+ of equipment location (i.e. indoor or outdoor), operating constraints, 
+ equipment current duty-cycle, switching operation rates, environmental 
+ data (such as ambient temperature and wind loading), harmonic measurements 
+ or manufacturer harmonic characteristics, is important to consider before 
+ starting the filter design process. &nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>The IEEE Guide for Application and Specification of Harmonic Filters 
+ [??] specifies the following steps as part of the harmonic filter design 
+ procedure:</p>
+<h3>Determine Harmonic Filter Bank kVAr Size</h3>
+<p>As described previously, the filter equipment provides the system with 
+ capacitive, reactive power for power factor improvement, which helps maintain 
+ voltage during heavy loads, in addition to filtering the harmonics. The 
+ “Effective kVAr” size of the filter depends on the capacitive, reactive 
+ power requirements for power factor, as well as voltage control, &nbsp;where 
+ the required value is commonly determined by power flow programs.</p>
+<h3>Select Initial Harmonic Filter Tuning</h3>
+<p>Filter tuning is necessary to reduce harmonic voltage and current distortion, 
+ in order to meet the required harmonic performance. The harmonic filter 
+ will typically be tuned to the lower frequency of the most significant 
+ harmonic. However, it is recommended that the harmonic filter be tuned 
+ between 3 to 15% below the desired frequency to provide sufficient harmonic 
+ filtering, and also to allow room for possible filter detuning. Harmonic 
+ filter performance across the whole frequency spectrum, at the filter 
+ location side (for both normal and contingency conditions) should be considered.</p>
+<p>&nbsp;</p>
+<p>The main reason for tuning the filter below the desired harmonic is 
+ due to the nature of filter interaction with the system. That is, the 
+ filter itself can shift the parallel resonant frequency very close to 
+ the harmonic. This can occur due to a change in filter and system configuration: 
+ Natural system variations, such as loss of transformers, equipment replacement 
+ or routine maintenance; manufacturer tolerances in both filter reactors 
+ and capacitors, capacitor changes due to temperature variations; harmonic 
+ filter capacitor unit/element failure due to fuse operation (reduces the 
+ total capacitance and increases the filter resonant frequency). &nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>If the level of harmonic distortion is not crucial, the customer may 
+ want to avoid overloading the harmonic filter capacitor with harmonic 
+ currents, without creating resonance with the system. Then the filter 
+ has to be ungrounded to avoid 3rd harmonic resonance with system and tuned 
+ below the 5th harmonic to avoid resonance at the characteristic harmonic. 
+ </p>
+<h3>Optimize the Harmonic Filter Configuration to Meet Harmonic Guidelines</h3>
+<p>The IEEE Standard 519-1992 provides recommendations to satisfy harmonic 
+ distortion limits. The filter is supposed to meet current and voltage 
+ distortion requirements for normal system configuration, as well as abnormal 
+ conditions. In cases wehere the distortion levels remain high, a new parallel 
+ resonance with the system may be a possible cause. Filter re-tuning or 
+ multiple-tuned harmonic filter installations can help to solve this problem. 
+ &nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>The number of harmonic filters, filter tuning and side locations, values 
+ of capacitance, inductance and reactance, allowable tolerances for capacitance, 
+ inductance and resistance, Q (X/R ratio) of the harmonic filter reactor 
+ at the tuned frequency, as well as steady-state energy dissipation requirements 
+ for the harmonic filter resistors, can be the results of the harmonic 
+ study analysis. &nbsp;The harmonic voltage and current spectra, with fundamental 
+ and all significant harmonic frequencies for normal and contingency system 
+ conditions, is also important outcome of the analysis. &nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>There is a common practice to use a harmonic simulation programs for 
+ possible operating conditions over frequency spectrum of the harmonic 
+ loads, meanwhile for a simple system this can be manually estimated. &nbsp;&nbsp;&nbsp;</p>
+<h3>Determine the Component Ratings</h3>
+<p>Harmonic filter capacitor rating is usually the first rating to be determined, 
+ followed by the reactor, resistor and switch ratings. This process requires 
+ adjustments and usually is iterative in nature. Transient simulation studies 
+ may also be required for some harmonic filter configurations.</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<ol style="list-style: decimal;">
+	<li style="font-family: Calibri, sans-serif;"><span style="font-weight: bold;">Harmonic 
+	 Filter Capacitors</span>: Harmonic filter capacitors are rated according 
+	 to voltage and kVAr and are usually given by the manufacturer; depending 
+	 on the harmonic spectra, transient over-voltages, VAr requirements 
+	 and system data. &nbsp;Rated kVAr of the capacitor bank is not equal 
+	 to effective reactive power because of the effect of the filter reactor.</li>
+</ol>
+<p style="margin-left: 40px;">The capacitor voltage rating is determined 
+ from the greatest voltage value at steady-state (including harmonics), 
+ transients associated with filter switching and sometimes circuit breaker 
+ operation (lasting less than half a cycle) and mechanical dynamics (lasting 
+ up to several seconds). In most single-tuned applications, the harmonic 
+ filter capacitor voltage is based on steady-state duties. The highest 
+ peak voltage applied to the harmonic filter capacitors should not be greater 
+ than 100% of peak capacitor voltage rating, for both normal system operation 
+ and contingency cases.</p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;">For the specified rated kVAr and voltage, 
+ the total RMS current through the harmonic filter capacitors should be 
+ less than 135% of the capacitor unit normal current, and the current should 
+ be kept within the capability of the capacitor fuses. An additional check 
+ includes the estimation of dielectric heating of the harmonic filter capacitor. 
+ Moreover, it is desirable to have a harmonic filter with more capability 
+ than required by harmonic loads and a generous margin is generally included 
+ in filter design stage.</p>
+<ol start="2" style="list-style: decimal;">
+	<li style="font-family: Calibri, sans-serif;"><span style="font-weight: bold;">Harmonic 
+	 Filter Reactors</span>: The physical location of the harmonic filter 
+	 reactor, with respect to the harmonic filter capacitor, has to be 
+	 identified, as it influences thermal issues, magnetic flux heating, 
+	 reactor short-circuit rating and reactor BIL. </li>
+</ol>
+<p style="margin-left: 40px;">Excessive heating due to fundamental and 
+ harmonic currents leads to component degradation , which can be a serious 
+ issue for iron-core harmonic filter reactors installed within metal-enclosed 
+ filters. The effect of eddy current losses, induced in metallic structures, 
+ by an air-core filter reactors magnetic flux has to be analysed at the 
+ design stage.</p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;">The BIL rating of the phase-to-ground insulation 
+ is supposed to be the same as it is for the transformer connected at the 
+ same voltage level. Exceptions can be made for filter coils protected 
+ by surge arresters, as well as for solidly grounded harmonic filters with 
+ the reactor terminal connected to the ground.</p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;">Similar to the process of harmonic filter 
+ capacitance, levels of transient and dynamic over voltages should be checked. 
+ Short-circuit current analysis must be performed for the condition of 
+ maximum operating voltage, in order to check the short-current capability 
+ for the harmonic filter reactor. &nbsp;&nbsp;</p>
+<ol start="3" style="list-style: decimal;">
+	<li style="font-family: Calibri, sans-serif;"><p><span style="font-weight: bold;">Filter 
+	 Resistors</span>: Physical location of the harmonic filter resistor, 
+	 with respect to the harmonic filter capacitor must be identified, 
+	 as it influences thermal issues, resistor short-circuit rating and 
+	 BIL. </p></li>
+</ol>
+<p style="margin-left: 40px;">Excessive heating leading to component degradation, 
+ due to fundamental and harmonic currents, can be a serious issue for metal-enclosed 
+ filters. Animal protection measures are also important considerations 
+ for outdoor installations. </p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;">Similar to the inductance case, the BIL rating 
+ requirements depend on the resistor position within the filter. The short-circuit 
+ filter resistor capability should be designed to withstand maximum possible 
+ short-circuit current. Magnitudes and durations of transient and dynamic 
+ over voltages must be identified and compared to resistor rating. Arrester 
+ protection should be included in case of parameter violation. </p>
+<ol start="4" style="list-style: decimal;">
+	<li style="font-family: Calibri, sans-serif;"><p><span style="font-weight: bold;">Circuit 
+	 Breaker or Switch</span>: The capacitive switching requirements should 
+	 be based on the worst case scenario conditions with maximum system 
+	 voltage, capacitive tolerances and harmonics. Short-circuit analysis 
+	 is supposed to include close-and-latch and momentary currents check, 
+	 and a capacitor switch must handle short-circuit current level, although 
+	 a capacitor switch, as opposed to circuit breaker, is not supposed 
+	 to interrupt it. &nbsp;Moreover, it is important to remember that 
+	 filter banks develop higher recovery voltage across a switch compared 
+	 to a shunt capacitor bank. So it is necessary to be aware of choosing 
+	 the switching device.</p></li>
+</ol>
+<ol start="5" style="list-style: decimal;">
+	<li style="font-family: Calibri, sans-serif;"><p><span style="font-weight: bold;">Switching 
+	 Transients</span>: It is desirable to provide the designer with data 
+	 (oscillograms) from transient study analysis, but this is not easy 
+	 to perform due to the randomness of the events. However, it is possible 
+	 to model some worst-case harmonic loading scenarios to identify magnitudes 
+	 and duration of the current by the harmonic order at the worst part 
+	 of the transient. Some typical scenarios are discussed in the following 
+	 paragraphs.</p></li>
+</ol>
+<p style="margin-left: 40px;">Because of the existence of the harmonic 
+ filter tuning reactor, back-to-back switching current magnitudes are lower 
+ compared to shunt reactor banks and so additional current limiting reactors 
+ do not need to be installed. In normal situations, the switching of the 
+ single-tuned harmonic filter does not require unusual duty for capacitors 
+ or reactors, which are expected for the shunt capacitor bank. Nevertheless, 
+ transient performance analysis for initial energization can be required 
+ for filters with several legs, to be sure that no high currents or voltages 
+ are expected.</p>
+<p style="margin-left: 40px;">&nbsp;</p>
+<p style="margin-left: 40px;">If the filter is connected to the system 
+ and is supposed to be energized after a system outage, harmonics due to 
+ transformer saturation can cause short-time overloading of the harmonic 
+ filter. The similar effect on filter can be a result of nearby faults 
+ causing transformer saturation and filter overloading. Transient studies 
+ to determine harmonic filter performance can be highly desirable.</p>
+<h2><a name="Master_Library_Models"></a>Master Library Models</h2>
+<p>The master library contains four ﬁlter blocks: A <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/Filters/tuned_filter.htm" style="text-decoration: none; ">series 
+ ﬁlter</a>, a <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/Filters/h_pass.htm" style="text-decoration: none; ">high-pass 
+ ﬁlter</a>, a <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/Filters/Band_Pass_Filter.htm" style="text-decoration: none; ">band-pass 
+ ﬁlter</a> and a <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/Filters/C-Type_Filter.htm" style="text-decoration: none; ">c-type 
+ ﬁlter</a>. All four filter configurations are illustrated in <a href="#Figure_F-1:__Filter_Configurations._a__Series__b__High-Pass__c__Band-Pass__d__C-Type" style="text-decoration: none; ">Figure F-1</a>. </p>
+<p>&nbsp;</p>
+<p>Series filters are also known as single-tuned or notch filters, and 
+ it is the type most used in industry. High-pass filters are used to suppress 
+ a wider range of frequencies than the single tuned filter, reducing the 
+ size of the components and avoiding capacitive power factor when the system 
+ is not loaded. Band-pass filters are not common in the industry, but the 
+ component can be used to model high-order filters or double-tuned filters. 
+ &nbsp;The c-type filter is a second-order filter, which is designed to 
+ have an impedance characteristic similar to the single-tuned filter, with 
+ the advantage of having lower power losses.</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1459.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-1:__Filter_Configurations._a__Series__b__High-Pass__c__Band-Pass__d__C-Type"></a>Figure 
+ F-1: &nbsp;Filter Configurations. a) Series, b) High-Pass, c) Band-Pass, 
+ d) C-Type</p>
+<h2><a name="Series__Single-Tuned__Filter"></a>Series (Single-Tuned) Filter</h2>
+<p><a href="#Figure_F-2:__Series__Single-Tuned__Filter" style="text-decoration: none; ">Figure 
+ F-2</a> shows the circuit schematic and a typical impedance characteristic 
+ for the series or single-tuned filter.</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1504.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-2:__Series__Single-Tuned__Filter"></a>Figure 
+ F-2: &nbsp;Series (Single-Tuned) Filter</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">This ﬁlter is tuned to suppress 
+ a single frequency and is designed based on three quantities: The harmonic 
+ current order that requires blocking, the capacitive reactive power that 
+ it is going to provide, and its quality factor. The voltage level and 
+ the fundamental frequency, which are given by the system, must also be 
+ considered during the design process. In summary, the values used to deﬁne 
+ the input parameters are: </p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: top;" cellspacing="0" width="500">
+	<colgroup><col style="width: 11.2%;">
+	<col style="width: 88.8%;">
+	</colgroup><tbody><tr style="vertical-align: top; height: 32px;">
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="text-align: center; font-size: 10pt; font-family: Calibri, sans-serif;">h</p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="font-family: Calibri, sans-serif;">Tuning point of 
+		 the ﬁlter (harmonic order)</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 25px;">
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="text-align: center; font-size: 10pt; font-family: Calibri, sans-serif;">Q<span style="vertical-align: Sub;">c</span></p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="font-family: Calibri, sans-serif;">Reactive power of 
+		 the ﬁlter [MVAr]</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 22px;">
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="text-align: center; font-size: 10pt; font-family: Calibri, sans-serif;">Q</p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="font-family: Calibri, sans-serif;">Quality factor</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 22px;">
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="text-align: center; font-size: 10pt; font-family: Calibri, sans-serif;">f</p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="font-family: Calibri, sans-serif;">System frequency 
+		 [Hz]</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 22px;">
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="text-align: center; font-size: 10pt; font-family: Calibri, sans-serif;">V</p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: middle;"><p style="font-family: Calibri, sans-serif;">System voltage [kV]</p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">The quality factor is a quantity 
+ that defines the bandwidth of the ﬁlter and, in this case, is expressed 
+ as the ratio between the reactance and the resistance of the ﬁlter. A 
+ typical range for Q is between 30 and 60.</p>
+<p style="font-family: Calibri, sans-serif;">The following equations can 
+ be applied for designing the ﬁlter: </p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1521.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-1)<a name="Equations_F-1_to_F-5"></a></p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1531.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-2)</p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1552.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-3)</p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1553.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-4)</p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1588.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-5)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p>Where, X is the reactance of the inductor or the capacitor at the tuned 
+ frequency. </p>
+<h3>Examples</h3>
+<p class="MsoNormal"><span style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; 
+							 mso-fareast-language: EN-US;">The following 
+ example illustrates the use of the <a href="https://www.pscad.com/webhelp/Master_Library_Models/Passive/Filters/tuned_filter.htm" style="text-decoration: none; ">series 
+ filter</a>. The circuit in</span> Figure F-<span style="mso-no-proof: yes;">3</span> 
+ <span style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; 
+		 mso-fareast-language: EN-US;">represents a system that has X/R 
+ = 10 (Q) and a load that injects typical harmonic currents generated by 
+ a twelve-pulse converter. This type of converter injects high currents 
+ for the 11<sup style="vertical-align: Baseline;">th</sup> and 13<sup style="vertical-align: Baseline;">th</sup></span><span style="mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; 
+	 mso-fareast-language: EN-US;"> harmonics into the AC side. Thus, filters 
+ are designed to suppress those currents.</span></p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" style="font-family: Calibri, sans-serif; text-align: center;"><b><img src="Passive%20Filter%20Design_arquivos/image1592.gif" style="border: none;" alt="" border="0"></b></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;">Figure 
+ F-3: &nbsp;System Configuration without Filters</p>
+<p>&nbsp;</p>
+<p>In this case, the 11th and 13th harmonic series filters are installed 
+ with the parameters described <a href="#Series__Single-Tuned__Filter" style="text-decoration: none; ">previously</a>. 
+ <a href="#Figure_F-6:__System_Configuration_with_Series_Filters" style="text-decoration: none; ">&nbsp;Figure 
+ F-6</a> illustrates the circuit with the filters installed in the point 
+ of common coupling. The <a href="https://www.pscad.com/webhelp/Master_Library_Models/CSMF/On-Line_Frequency_Scanning/fft.htm" style="text-decoration: none; ">Fast Fourier 
+ Transform (FFT)</a> is used to measure the current magnitudes for the 
+ 11th and 13th harmonic in both circuits. </p>
+<p>&nbsp;</p>
+<p>Using <a href="#Equations_F-1_to_F-5" style="text-decoration: none; ">Equations 
+ F-1 to F-5</a>, the ﬁlter tuned to the 11th harmonic can be represented 
+ by the following quantities:</p>
+<p>&nbsp;</p>
+<p><img src="Passive%20Filter%20Design_arquivos/image1648.gif" style="border: none;" alt="" border="0"></p>
+<p>&nbsp;</p>
+<p>The impedance characteristic of this series filter is designed to resonate 
+ at the 11th harmonic and is displayed in <a href="#Figure_F-4:_Impedance_Characteristics_of_Series_Filters" style="text-decoration: none; ">Figure 
+ F-4</a>.</p>
+<p>&nbsp;</p>
+<p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1653.gif" style="border: none;" alt="" border="0"></p>
+<p style="text-align: center;"><a name="Figure_F-4:_Impedance_Characteristics_of_Series_Filters"></a>Figure 
+ F-4: Impedance Characteristics of Series Filters</p>
+<p>&nbsp;</p>
+<p><a href="#Figure_F-5:_Impedance_Characteristic_for_a_Combination_of_11th_and_13th_Harmonic_Series_Filters" style="text-decoration: none; ">Figure F-5</a> shows the impedance 
+ characteristic for a combination of 11th and 13th harmonic series filters. 
+ &nbsp;Values for these two filters are:</p>
+<p>&nbsp;</p>
+<p>C<span style="vertical-align: Sub;">11</span> =13,26 µF , L<span style="vertical-align: Sub;">11</span> 
+ = 4.38 mH, R<span style="vertical-align: Sub;">11</span> = 0.366 Ω</p>
+<p>C<span style="vertical-align: Sub;">13</span> =13,26 µF, L<span style="vertical-align: Sub;">13</span> 
+ = 3.14 mH, R<span style="vertical-align: Sub;">13</span> = 0.308 Ω</p>
+<p>&nbsp;</p>
+<p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1660.gif" style="border: none;" alt="" border="0"></p>
+<p style="text-align: center;"><a name="Figure_F-5:_Impedance_Characteristic_for_a_Combination_of_11th_and_13th_Harmonic_Series_Filters"></a>Figure 
+ F-5: Impedance Characteristic for a Combination of 11th and 13th Harmonic 
+ Series Filters</p>
+<p style="text-align: center;">&nbsp;</p>
+<p>The impedance characteristics are obtained using the <a href="https://www.pscad.com/webhelp/Master_Library_Models/Meters/Harmonic_Impedance_Solution/harm_imp_int.htm" style="text-decoration: none; ">Interface 
+ to Harmonic Impedance Solution</a> from the master library. The results 
+ show a reduction of 96% in the magnitude of the currents.</p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1644.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-6:__System_Configuration_with_Series_Filters"></a>Figure 
+ F-6: &nbsp;System Configuration with Series Filters</p>
+<p style="font-family: Calibri, sans-serif; text-decoration: none; ">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;"><a href="#Figure_F-7:__Current_Waveform_Comparisons" style="text-decoration: none; "><span style="line-height: 115%; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: 'Times New Roman'; 
+	 mso-fareast-theme-font: minor-fareast; mso-hansi-theme-font: minor-latin; 
+	 mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: minor-bidi; 
+	 mso-ansi-language: EN-CA; mso-fareast-language: EN-CA; mso-bidi-language: AR-SA; 
+	 text-decoration: none; ">Figure F-</span><span style="mso-no-proof: yes; 
+													 text-decoration: none; ">7</span></a> 
+ <span style="line-height: 115%; mso-ascii-theme-font: minor-latin; mso-fareast-font-family: Calibri; 
+		 mso-fareast-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; 
+		 mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: minor-bidi; 
+		 mso-ansi-language: EN-CA; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">shows 
+ the improvement in the current waveform injected into the network.</span> 
+ </p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p class="MsoNormal" style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1661.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-7:__Current_Waveform_Comparisons"></a>Figure 
+ F-7: &nbsp;Current Waveform Comparisons</p>
+<h2><a name="High-Pass_Filter"></a>High-Pass Filter</h2>
+<p><a href="#Figure_F-8:__High-Pass_Filter" style="text-decoration: none; ">Figure 
+ F-8</a> shows the circuit schematic and a typical impedance characteristic 
+ for a high-pass filter.</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1662.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-8:__High-Pass_Filter"></a>Figure 
+ F-8: &nbsp;High-Pass Filter</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">This filter is designed to 
+ have an impedance characteristic that is flat for high frequencies. Looking 
+ at the equation that represents the variation of the impedance with the 
+ frequency,</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1663.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-6)</p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">It can be shown that low resistance 
+ values will increase the losses, due to that parallel connection with 
+ the inductor, and having higher inductance is easier to achieve when designing 
+ the filter to work at high frequencies. Thus, this type of filter is applied 
+ to suppress 5th harmonic order currents or higher. &nbsp;The resistance 
+ also establishes an asymptotic behaviour in the impedance, limiting the 
+ maximum value at high frequencies. This means wide bandwidth that can 
+ be measured by the quality factor, which is the inverse of that for the 
+ series filter, and it is designed to have values between 0.5 and 2.</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1664.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-7)</p></td>
+	</tr>
+</tbody></table>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">Where X<span style="vertical-align: Sub;">LN</span> 
+ = X<span style="vertical-align: Sub;">CN</span> are reactances at the 
+ tuned frequency.</p>
+<h3>Examples</h3>
+<p class="MsoNormal">As an example, a high-pass filter tuned for the 11th 
+ harmonic, working in a 60 Hz system, was calculated using the <a href="#Equations_F-1_to_F-5" style="text-decoration: none; ">Equations F1 to F5</a>. &nbsp;The 
+ reactive power capacity at the fundamental frequency was selected as 1.0 
+ MVAr at 10 kV and a Q of 1. The parameters of the filter are:</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">C = 26.31 µF &nbsp;&nbsp;L = 2.21 mH &nbsp;&nbsp;R 
+ = 9.17 <span style="font-family: Symbol, serif;">W</span> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">The frequency response of the filter is depicted in 
+ <a href="#Figure_F-9:__Impedance_Characteristic_for_High-Pass_Filter_Tuned_to_11th_Harmonic" style="text-decoration: none; ">Figure F-9</a>.</p>
+<p class="MsoNormal">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1666.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-9:__Impedance_Characteristic_for_High-Pass_Filter_Tuned_to_11th_Harmonic"></a>Figure 
+ F-9: &nbsp;Impedance Characteristic for High-Pass Filter Tuned to 11th 
+ Harmonic</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">The high-pass filter is designed 
+ to work in combination with one, or several notch filters that suppress 
+ lower order harmonics, in order to avoid the power losses that the filter 
+ creates when it is designed for low frequencies. </p>
+<h2><a name="Band-Pass_Filter"></a>Band-Pass Filter</h2>
+<p>This component can be used in to model high-order filters. Probably 
+ the most popular is the double-tuned filter (depicted in Figure F-10), 
+ which is a combination of a band-pass filter in series with an inductor 
+ and a capacitor. This type of filter works by combining the parallel resonance 
+ of the band-pass filter, with the series-resonance of the inductor and 
+ capacitor combination. Two new resonant frequencies are optioned, as shown 
+ in the graph. This configuration makes the filter less expensive to build 
+ than the parallel combination of two independent series filters.</p>
+<p>&nbsp;</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1667.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-10:__Impedance_Characteristic_of_a_Double-Tuned_Filter"></a>Figure 
+ F-10: &nbsp;Impedance Characteristic of a Double-Tuned Filter</p>
+<h2><a name="C-Type_Filter"></a>C-Type Filter</h2>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1755.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;">Figure 
+ F-11: &nbsp;Equivalent Series Filter for the C-Type Filter</p>
+<p style="font-family: Calibri, sans-serif; text-align: center;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">C-type filters are second-order 
+ filters that have the capacity of suppressing harmonic currents with lower 
+ losses than the series filter or the band-pass filter. The reason for 
+ this capability is the &nbsp;L and C elements, which are parallel with 
+ the resistor, resonate at the fundamental frequency. Thus, the fundamental 
+ current that circulates through the damping resistor is reduced to a minimum. 
+ Another advantage is that c-type filters perform well in suppressing high 
+ frequency harmonics, due to their inherently flat impedance characteristic 
+ above the tuned frequency.</p>
+<p style="font-family: Calibri, sans-serif;">&nbsp;</p>
+<p style="font-family: Calibri, sans-serif;">The design input parameters 
+ for the C-type filter are the same as they are for the series filter, 
+ and its impedance can be expressed on the basis of &nbsp;R, L, C, C<span style="vertical-align: Sub;">1</span>:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1674.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-8)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1729.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-9)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p class="MsoNormal">According to Reference [<a href="https://www.pscad.com/webhelp/References.htm" style="text-decoration: none; ">30</a>], 
+ the parameters of this filter can be calculated using the model of the 
+ series filter, as it is shown in Figure F-11. Using Q<span style="vertical-align: Sub;">c</span>, 
+ Q, V and h as inputs, the first step is to calculate the parameters of 
+ the series filter elements L<span style="vertical-align: Sub;">s</span> 
+ and C<span style="vertical-align: Sub;">s</span>. Considering that the 
+ inductance L is equal to L<span style="vertical-align: Sub;">s</span>, 
+ the second step is to calculate C to be resonant with L at the fundamental 
+ frequency. The capacitor C<span style="vertical-align: Sub;">1</span> 
+ is calculated considering that C and C<span style="vertical-align: Sub;">1</span> 
+ are connected in series and equal to C<span style="vertical-align: Sub;">s</span>. 
+ &nbsp;</p>
+<p class="MsoNormal">The following equations summarized the steps:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1788.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-10)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1789.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-11)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1790.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-12)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1793.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-13)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1796.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-14)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<h3>Examples</h3>
+<p class="MsoNormal">As for the series filter, the parameters of the C-type 
+ filter R, L, C, C<span style="vertical-align: Sub;">1</span> are calculated 
+ based on nominal voltage V, tuning frequency of the filter ω<span style="vertical-align: Sub;">o</span> 
+ and the reactive power capacity at fundamental &nbsp;frequency Q<span style="vertical-align: Sub;">c</span>. Neglecting the resistance in 
+ the reactor and the dielectric power loss in the capacitors, the impedance 
+ of the filter will be as follows:</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">Parameters L and C are tuned up to fundamental frequency 
+ to avoid power loss at fundamental frequency on damping resistor R:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1801.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-15)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p>The impedance of the filter at fundamental frequency is determined by 
+ C<span style="vertical-align: Sub;">1</span> only:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1802.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><a name="_F-16_"></a>(F-16)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p>Reference [<a href="https://www.pscad.com/webhelp/References.htm" style="text-decoration: none; ">30</a>] 
+ Introduces a practical approach in C-type filter parameters estimation, 
+ based on a comparison with a series filter and some simplifications and 
+ assumptions. It is suggested that the series filter have the same nominal 
+ voltage, reactive compensation power and tuned harmonic as C-type filter. 
+ </p>
+<p>&nbsp;</p>
+<p>Series C and L parameters for C-type filter:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1803.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-17)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1804.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-18)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p>The sum of C<span style="vertical-align: Sub;">1</span> and C of the 
+ C-type filter in a series connection is equal to C<span style="vertical-align: Sub;">S</span> 
+ of the series filter:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1809.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-19)</p></td>
+	</tr>
+</tbody></table>
+<p class="MsoNormal">&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1816.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-20)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p>The damping resistance using quality factor definition:</p>
+<p>&nbsp;</p>
+<table style="vertical-align: Center;" cellspacing="0" width="500" align="center">
+	<colgroup><col style="width: 83.6%;">
+	<col style="width: 16.4%;">
+	</colgroup><tbody><tr style="vertical-align: center;">
+		<td style="width: 83.6%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1821.gif" style="border: none;" alt="" border="0"></p></td>
+		<td style="width: 16.4%; padding-right: 10px; padding-left: 10px; 
+			 background-color: Transparent;"><p style="text-align: center;">(F-21)</p></td>
+	</tr>
+</tbody></table>
+<p>&nbsp;</p>
+<p class="MsoNormal">For the <a href="https://en.wikipedia.org/wiki/Quebec_%C3%A2%C2%80%C2%93_New_England_Transmission" style="text-decoration: none; ">Quebec-New 
+ England Transmission</a> project, the C-type filter, tuned for the 3rd 
+ harmonic, was implemented, working in a 60 Hz system with reactive power 
+ capacity at fundamental frequency of 49 MVAr at 315 kV and a quality factor 
+ of 2.</p>
+<p class="MsoNormal">The C-type filter parameter calculations using <a href="#_F-16_" style="text-decoration: none; ">Equations F-16 to F-21</a> 
+ give the following results:</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">R = 1349 <span style="font-family: Symbol, serif;">W</span> 
+ &nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class="MsoNormal">L = 671 mH &nbsp;&nbsp;&nbsp;</p>
+<p class="MsoNormal">C = 10.48 µF &nbsp;</p>
+<p class="MsoNormal">C<span style="vertical-align: Sub;">s</span> = 1.164 
+ µF and </p>
+<p class="MsoNormal">C<span style="vertical-align: Sub;">1</span> = 1.31 
+ µF</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">The impedance characteristic for the discussed C-type 
+ filter is represented in <a href="#Figure_F-12:__Impedance_Characteristic_for_a_C-Type_Filter_Tuned_to_3rd_Harmonic" style="text-decoration: none; ">Figure F-12</a>. 
+ The graph has been created using the <a href="https://www.pscad.com/webhelp/Master_Library_Models/Meters/Harmonic_Impedance_Solution/harm_imp_int.htm" style="text-decoration: none; ">Interface 
+ to Harmonic Impedance Solution</a> component from PSCAD master library.</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal" style="font-family: Calibri, sans-serif; text-align: center;"><img src="Passive%20Filter%20Design_arquivos/image1800.gif" style="border: none;" alt="" border="0"></p>
+<p style="font-family: Calibri, sans-serif; text-align: center;"><a name="Figure_F-12:__Impedance_Characteristic_for_a_C-Type_Filter_Tuned_to_3rd_Harmonic"></a>Figure 
+ F-12: &nbsp;Impedance Characteristic for a C-Type Filter Tuned to 3rd 
+ Harmonic</p>
+<p style="font-weight: normal;">&nbsp;</p>
+<p style="font-weight: normal;">
+
+<a href="javascript:void(0);" onclick="var e; if (parseInt(navigator.appVersion)>=4){e=event;}  if (parseInt(navigator.appVersion) >=2 &amp;&amp; typeof(PopupMenu_Invoke) == 'function') PopupMenu_Invoke(e,'','Band Pass RLC Filter','Band_Pass_Filter.htm','C-Type Filter','C-Type_Filter.htm','High Pass RLC Filter','h_pass.htm','Series RLC Filter','tuned_filter.htm');return false;" title="Related Topics"><img src="Passive%20Filter%20Design_arquivos/ss_btn_related_topics.gif" border="0" height="16" width="92" alt="Related Topics"></a>
+
+
+ </p>
+<script type="text/javascript" language="JavaScript">//<![CDATA[
+if (parseInt(navigator.appVersion) >= 3 && typeof (WritePopupMenuLayer) == "function")
+  WritePopupMenuLayer();
+//]]></script><div id="PopupMenu" style="position:absolute; left:0px; top:0px; z-index:4; visibility:hidden;"></div><style type="text/css">.PopupOver {font-family:'Arial'; color:white; background:navy; font-size:8pt; font-style:normal;font-weight:normal;text-decoration:none;}.PopupNotOver {font-family:'Arial'; color:black; background:#c0c0c0; font-size:8pt; font-style:normal;font-weight:normal;text-decoration:none;}</style><script type="text/javascript" language="javascript1.2">//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+	writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]></script>
+
+
+</body></html>

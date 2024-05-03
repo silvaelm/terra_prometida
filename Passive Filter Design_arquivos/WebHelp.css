@@ -1,0 +1,89 @@
+﻿/*Created with Adobe RoboHelp 11.*/
+html {
+	
+}
+body {
+	font: 400 16px/1.5 'Helvetica Neue', sans-serif;
+	background-color: #fff;
+	color: #333;
+	margin: 1em;
+}
+
+h1, .h1 { font-size: 2.00em; line-height: 1.2; margin-bottom: .5em; }
+h2, .h2 { font-size: 2.00em; line-height: 1.3; margin-bottom: .5em; font-weight: normal; }
+h3, .h3 { font-size: 1.25em; line-height: 1.3; margin-bottom: .25em; margin-top: 1rem; }
+h4, .h4 { font-size: 1.20em; line-height: 1.3; margin-bottom: 0; font-weight: bold;}
+
+p { margin: 0 0 .5em 0; }
+
+ul, ol { margin: 0 0 .5em 1em; padding-left: 2rem; }
+ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
+ul ul { list-style: circle; }
+ul { list-style: disc; }
+ol { list-style: decimal; }
+li { line-height: inherit; }
+
+a { color: #001135; outline: 0; text-decoration: underline !important; text-decoration-color: #ffd41c !important; }
+a:hover	{ color: #001135; outline: 0; text-decoration: none; background-color: #ffd41c; }
+
+
+P.Notes {
+	margin-left: 18pt;
+	margin-right: 18pt;
+	margin-top: 9pt;
+	margin-bottom: 9pt;
+	x-next-class: ;
+	x-next-type: P;
+}
+LI.p-Notes {
+}
+p.LinkList {
+	line-height: 150%;
+	text-decoration: none;
+}
+LI.p-LinkList {
+	line-height: 150%;
+	text-decoration: none;
+}
+P.Code {
+	font-size: 10pt;
+	font-family: "Courier New", monospace;
+	background-color: #e5e5e5;
+	margin-left: 10pt;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	x-next-class: ;
+	x-next-type: P;
+}
+LI.p-Code {
+	font-size: 10pt;
+	font-family: "Courier New", monospace;
+}
+P.ListContinue {
+	margin-left: 24px;
+}
+LI.p-ListContinue {
+}
+H1.Style1 {
+	font-weight: bold;
+	margin-top: 0pt;
+	margin-bottom: 10pt;
+	color: #35166d;
+	font-size: 13.5pt;
+	font-family: "Lucida Sans";
+	x-next-class: ;
+	x-next-type: P;
+}
+span.expandtext {
+	font-family: "Lucida Sans";
+	font-size: 10pt;
+	color: #6b6d70;
+}
+span.glosstext {
+	font-family: "Lucida Sans";
+	font-size: 10pt;
+	color: #6b6d70;
+}
+
+
+

@@ -1,0 +1,8 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "LM74610QDGKRQ1")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/LM74610QDGKRQ1.kicad_sym")(options "")(descr ""))
+  (lib (name "MC33911BAC")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/MC33911BAC.kicad_sym")(options "")(descr ""))
+  (lib (name "E_L9637D013TR")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/E_L9637D013TR.kicad_sym")(options "")(descr ""))
+  (lib (name "SN74LVCC3245ADWR")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/SN74LVCC3245ADWR.kicad_sym")(options "")(descr ""))
+  (lib (name "TPS7A2050PDBVR")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/TPS7A2050PDBVR.kicad_sym")(options "")(descr ""))
+)

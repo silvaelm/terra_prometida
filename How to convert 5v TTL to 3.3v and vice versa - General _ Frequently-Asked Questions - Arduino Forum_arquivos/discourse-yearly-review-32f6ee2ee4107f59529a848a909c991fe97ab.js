@@ -1,0 +1,14 @@
+define("discourse/plugins/discourse-yearly-review/discourse/components/yearly-review-admin-notice",["exports","@glimmer/component","@ember/service","discourse/helpers/replace-emoji","discourse-common/helpers/html-safe","discourse-common/helpers/i18n","discourse-common/lib/get-url","discourse-i18n","@ember/template-factory","@ember/component"],(function(e,i,r,t,n,a,l,s,o,u){"use strict"
+var c,d,m
+function p(){return new Date((new Date).getFullYear()+1,0,1)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0,e.janNextYear=p
+e.default=(m=class extends i.default{constructor(){var e,i,r,t
+super(...arguments),e=this,i="siteSettings",t=this,(r=d)&&Object.defineProperty(e,i,{enumerable:r.enumerable,configurable:r.configurable,writable:r.writable,value:r.initializer?r.initializer.call(t):void 0})}get toBeCreatedDate(){return moment(p()).format(s.default.t("dates.full_with_year_no_time"))}get settingsUrl(){return(0,l.default)("/admin/site_settings/category/plugins?filter=plugin%3Adiscourse-yearly-review")}},(0,u.setComponentTemplate)((0,o.createTemplateFactory)({id:"xvwlriwT",block:'[[[1,"\\n    "],[10,0],[14,0,"yearly-review-admin-notice alert alert-info"],[12],[1,"\\n      "],[1,[28,[32,0],[[28,[32,1],[[28,[32,2],["yearly_review.admin_notice"],[["to_be_created_date","settings_url"],[[30,0,["toBeCreatedDate"]],[30,0,["settingsUrl"]]]]]],null]],null]],[1,"\\n    "],[13],[1,"\\n  "]],[],false,[]]',moduleName:"/var/www/discourse/app/assets/javascripts/discourse/discourse/plugins/discourse-yearly-review/discourse/components/yearly-review-admin-notice.js",scope:()=>[t.default,n.default,a.default],isStrictMode:!0}),m),f=(c=m).prototype,y="siteSettings",v=[r.inject],b={configurable:!0,enumerable:!0,writable:!0,initializer:null},w={},Object.keys(b).forEach((function(e){w[e]=b[e]})),w.enumerable=!!w.enumerable,w.configurable=!!w.configurable,("value"in w||w.initializer)&&(w.writable=!0),w=v.slice().reverse().reduce((function(e,i){return i(f,y,e)||e}),w),g&&void 0!==w.initializer&&(w.value=w.initializer?w.initializer.call(g):void 0,w.initializer=void 0),void 0===w.initializer&&(Object.defineProperty(f,y,w),w=null),d=w,c)
+var f,y,v,b,g,w})),define("discourse/plugins/discourse-yearly-review/discourse/initializers/yearly-review-admin-notice",["exports","discourse/lib/plugin-api","discourse/plugins/discourse-yearly-review/discourse/components/yearly-review-admin-notice"],(function(e,i,r){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+e.default={name:"yearly-review-admin-notice",initialize(e){(0,i.withPluginApi)("1.18.0",(i=>{if(!e.lookup("service:site-settings").yearly_review_enabled)return
+11===(new Date).getMonth()&&i.renderInOutlet("admin-dashboard-top",r.default)}))}}}))
+
+//# sourceMappingURL=discourse-yearly-review-491bd739b0c2c1a7dcb6a72bc036f1860b082b738a08607c153aad299680855f.map
+//!
+
+;
