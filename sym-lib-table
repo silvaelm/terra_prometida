@@ -5,4 +5,5 @@
   (lib (name "E_L9637D013TR")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/E_L9637D013TR.kicad_sym")(options "")(descr ""))
   (lib (name "SN74LVCC3245ADWR")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/SN74LVCC3245ADWR.kicad_sym")(options "")(descr ""))
   (lib (name "TPS7A2050PDBVR")(type "KiCad")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/TPS7A2050PDBVR.kicad_sym")(options "")(descr ""))
+  (lib (name "MAX25600ATI_VY_")(type "Legacy")(uri "/home/cabure/Documentos/cabure_kicad/lib_sch/MAX25600ATI_VY_.lib")(options "")(descr ""))
 )
